@@ -6,14 +6,29 @@ import (
 	"time"
 )
 
-// channel operations are blocking, to archive synchronization of receiver and sender (<-c and c<-)
+//fan-in functionto let whoseover is ready talk
+
+func fanIn(input1, input2 <-chan string) <-chan string {
+	c := make(chan string)
+	go func() {
+		for {
+			select {
+			case s := <-input1:
+				c <- s
+			case s := <-input2:
+				c <- s
+			}
+		}
+	}()
+	return c
+}
 
 func main() {
-	c := boring("boring!") //func returning a channel
-	for i := 0; i < 5; i++ {
-		fmt.Printf("You say: %q\n", <-c)
+	c := fanIn(boring("Joe"), boring("Ann"))
+	for i := 0; i < 10; i++ {
+		fmt.Println(<-c)
 	}
-	fmt.Println("You're boring; I'm leaving")
+	fmt.Println("You're both boring; I'm leaving")
 }
 
 func boring(msg string) <-chan string { // Returns receive-only channel of strings.

@@ -6,14 +6,19 @@ import (
 	"time"
 )
 
-// channel operations are blocking, to archive synchronization of receiver and sender (<-c and c<-)
-
 func main() {
-	c := boring("boring!") //func returning a channel
-	for i := 0; i < 5; i++ {
-		fmt.Printf("You say: %q\n", <-c)
+	c := boring("Joe")
+	for {
+		select {
+		case s := <-c:
+			fmt.Println(s)
+			//The time.After function returns a channel that blocks for the specific duration.
+			//After the interval, the channel delivers the current time, once
+		case <-time.After(1 * time.Second):
+			fmt.Println("You're too slow.")
+			return
+		}
 	}
-	fmt.Println("You're boring; I'm leaving")
 }
 
 func boring(msg string) <-chan string { // Returns receive-only channel of strings.

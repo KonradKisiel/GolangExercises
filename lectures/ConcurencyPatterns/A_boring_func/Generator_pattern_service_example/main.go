@@ -9,11 +9,13 @@ import (
 // channel operations are blocking, to archive synchronization of receiver and sender (<-c and c<-)
 
 func main() {
-	c := boring("boring!") //func returning a channel
+	joe := boring("Joe")
+	ann := boring("Ann")
 	for i := 0; i < 5; i++ {
-		fmt.Printf("You say: %q\n", <-c)
+		fmt.Println(<-joe)
+		fmt.Println(<-ann)
 	}
-	fmt.Println("You're boring; I'm leaving")
+	fmt.Println("You're both boring; i'm leaving")
 }
 
 func boring(msg string) <-chan string { // Returns receive-only channel of strings.
