@@ -1,0 +1,11 @@
+package main
+
+import "testing"
+
+//testing function for mySum()
+func TestMySum(t *testing.T) {
+	x := mySum(2,3)
+	if x != 5{
+		t.Error("Expected 5, got:", x)
+	}
+}
