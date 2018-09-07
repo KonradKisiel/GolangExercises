@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+</head>
+    <meta charset="UTF-8">
+    <title>Elo</title>
+</head>
+<body>
+<h1>Range of wisdom</h1>
+<ul>
+    {{range.Wisdom}}
+    <li>{{.Name}} : {{.Accomplishment}}/li>
+    {{end}}
+</ul>
+<h1>Range of cars</h1>
+    {{range.Transport}}
+    <li>{{.Manofacturer}} - {{.Model}}, Doors: {{.Doors}}</li>
+    {{end}}
+</body>
+</html>
