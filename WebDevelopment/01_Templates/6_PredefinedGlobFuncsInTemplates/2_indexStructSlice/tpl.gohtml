@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+</head>
+    <meta charset="UTF-8">
+    <title>Functions</title>
+</head>
+<body>
+<!-- pipelining, output from the previous is input for the next -->
+    {{index .Words 0}}
+    {{index .Words 1}}
+    {{index .Words 2}}
+    <!--
+    index
+    a func you can use in a template
+    it is a "prefefined gloabal function"
+
+    Index returns  the result of indexing its first argument by the
+     following arguments. Thus "index x 1 2 3" is, in Go syntax,
+     x[1][2][3]. Each indexeed item must be a map, slice, or array.
+
+     https://godoc.org/text/template#hdr-Functions
+    -->
+
+    <!-- FYI -->
+    This ia a go template comment
+    {{/*(index .Achivement 3).Name*/}}
+</body>
+</html>
