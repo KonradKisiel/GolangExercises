@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant menu</title>
+</head>
+<body>
+    {{range .}}
+
+    Restaurant: {{.Name}}
+
+    <h1>Menu<h1>
+        {{range .Menu.Breakfast}}
+            Dish: {{.Name}}
+            Price: {{.Price}}
+            Ingridients: {{range .Ingridients}}
+                            {{.}}
+                        {{end}}
+        {{end}}
+        {{range .Menu.Lunch}}
+            Dish: {{.Name}}
+            Price: {{.Price}}
+            Ingridients: {{range .Ingridients}}
+                            {{.}}
+                        {{end}}
+        {{end}}
+        {{range .Menu.Dinner}}
+            Dish: {{.Name}}
+            Price: {{.Price}}
+            Ingridients: {{range .Ingridients}}
+                            {{.}}
+                        {{end}}
+        {{end}}
+    {{end}}
+</body>
+</html>

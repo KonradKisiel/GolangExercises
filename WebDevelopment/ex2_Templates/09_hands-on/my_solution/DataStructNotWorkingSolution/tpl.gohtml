@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+</head>
+<body>
+<div style="overflow-x:auto;">
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th>Adj Close</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Date}}</td>
+            <td>{{.Open}}</td>
+            <td>{{.High}}</td>
+            <td>{{.Low}}</td>
+            <td>{{.Close}}</td>
+            <td>{{.Volume}}</td>
+            <td>{{.Adj_Close}}</td>
+        </tr>   
+        {{end}}
+    </table>
+</div>
+
+        <!--
+            {{range .Date}}<td>{{.}}</td>{{end}}
+            {{range .Open}}<td>{{.}}</td>{{end}}
+            {{range .High}}<td>{{.}}</td>{{end}}
+            {{range .Low}}<td>{{.}}</td>{{end}}
+            {{range .Close}}<td>{{.}}</td>{{end}}
+            {{range .Volume}}<td>{{.}}</td>{{end}}
+            {{range .Adj_Close}}<td>{{.}}</td>{{end}}
+        -->
+
+        <!--    
+            <td>{{.Date}}</td>
+            <td>{{.Open}}</td>
+            <td>{{.High}}</td>
+            <td>{{.Low}}</td>
+            <td>{{.Close}}</td>
+            <td>{{.Volume}}</td>
+            <td>{{.Adj_Close}}</td>
+            -->
+</body>
+</html>
